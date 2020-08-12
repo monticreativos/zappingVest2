@@ -1,0 +1,96 @@
+ion-toolbar{
+    text-align: center;
+    margin: 0 auto;
+    --background: #161e29;
+}
+
+ion-content{
+    --background:white;
+}
+
+ion-back-button{
+    color:white;
+}
+
+.smallLogo{
+    width: 160px;
+    text-align: center;
+    margin: 10px;
+}
+
+.back-button{
+    position: absolute;
+    color: #fff;
+}
+
+.details-partner h1{
+    text-align: center;
+}
+
+.details-partner h3{
+    text-align: center;
+    color: #9999;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.img-category{
+    border-radius: 10px;
+    padding: 1px;
+}
+
+.details-discount{
+    text-align: center;
+    background-color:#161e29;
+    color:#d3a768;
+    font-size: 20px;
+}
+
+.details-discount h1{
+    padding: 10px;
+}
+
+.details-description{
+    text-align: center;
+    white-space: pre-wrap;
+    color: black;
+}
+
+hr{
+    background-color:#161e29;
+    width: 50px;
+}
+
+ion-button{
+    margin: 0 auto;
+}
+
+.btn-booking{
+    width: 140px;
+    --background: rgb(238,205,134);
+    --background: linear-gradient(0deg, rgba(238,205,134,1) 0%, rgba(155,122,75,1) 100%);
+    color:#000;
+    font-weight: 800; 
+}
+
+#map{
+    margin-top: 20px;
+}
+
+ion-slide {
+    height: 100%;
+}
+
+.swiper-pagination {
+    position: fixed;
+    bottom: 0px;
+    padding-bottom: 3px;
+    --bullet-background:"#000";
+}
+
+
+ion-slides {
+    --bullet-background: #000;
+    --bullet-background-active: #d3a768;
+ }

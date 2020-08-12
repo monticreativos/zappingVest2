@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <img src="assets/logo.svg" class="smallLogo"/>
+  </ion-toolbar>
+</ion-header>
+  
+
+<ion-content [fullscreen]="true">
+  <div class="content-title">
+    <img class="img-content" src="assets/icon/SCAN.jpg"/>
+    <h4>Scannez votre ticket</h4>
+  </div>
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="10" class="center-col">
+          <div class="icon-ticket">
+            <p>Remplissez les champs et faite une photo de votre ticket.</p>
+          </div>
+          <ion-item>
+            <ion-label>Collaborateurs</ion-label>
+            <ion-select [compareWith]="compareWith" [(ngModel)]="partner" (ionChange)="optionsFn(partner)">
+              <ion-select-option *ngFor="let item of listParnet" value="{{item.id}}">{{item.name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-input inputmode="numeric" (keyup.enter)="closeKeyboard()" enterkeyhint="done" [(ngModel)]="postData.import" placeholder="Montant €"></ion-input>
+          </ion-item>
+          <img class="btn-camera" src="assets/icon/btn_camera.svg" (click)="takePicture()"> 
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+</ion-content>

@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <img src="assets/logo.svg" class="smallLogo"/>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <div class="content-title">
+    <img class="img-content" src="assets/icon/FRIENDS.jpg"/>
+    <h4>Booster votre compteur de points!</h4>
+  </div>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="10" class="center-col">
+        <div class="icon-ticket">
+          <p>Un ami à vous est intéressé par l’achat d’un bien au soleil ? Partagez avec nous son numéro de téléphone afin que nous puissions l’aider à trouver son bonheur en Espagne ! S’il achète via Zapinvest, il vous rapportera 7000 points et vous lui permettrez de bénéficier ses 2000 premiers points</p>
+        </div>
+        <ion-item>
+          <ion-input type="text"  [(ngModel)]="postData.nombre" placeholder="Prénom"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text"  [(ngModel)]="postData.apellido" placeholder="Nom"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text"  [(ngModel)]="postData.telefono" placeholder="Numéro de téléphone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text"  [(ngModel)]="postData.email" placeholder="Email"></ion-input>
+        </ion-item>
+        <ion-button share="round" expand="block" (click)="sendEmail()">Envoyer</ion-button>
+
+        <div class="container-friends" *ngIf=" listFriends?.length !=0 ">
+          <h4 class="title-card">Zapamis</h4>
+          <ion-card>
+            <ion-card-content>
+              <ion-list lines="none">
+                <ion-item *ngFor="let item of listFriends" >
+                  <table class="table" style="width:100%;">
+                    <tr>
+                      <td style="text-align:center;">
+                        <img class="icon-friend" src="assets/icon/icon-friend.svg">
+                      </td>
+                      <td style="text-align:center;">
+                        <h2 class="item-reg" style="color: #d3a768;">{{ item?.email }}</h2>
+                      </td>
+                    </tr>
+                  </table>
+                </ion-item>
+              </ion-list>
+            </ion-card-content>
+          </ion-card>
+        </div>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

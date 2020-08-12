@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Zap Privilege</string>
+    <string name="title_activity_main">Zap Privilege</string>
+    <string name="package_name">com.lchawkins.zapinvest</string>
+    <string name="custom_url_scheme">com.lchawkins.zapinvest</string>
+</resources>

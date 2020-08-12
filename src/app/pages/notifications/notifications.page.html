@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <img src="assets/logo.svg" class="smallLogo"/>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="notificationsList">
+  <div class="content-title">
+    <img class="img-content" src="assets/icon/NOTIFICATION.jpg"/>
+    <h4>Notifications</h4>
+  </div>
+  <ion-list *ngIf="notificationsList">
+    <ion-item *ngFor="let item of notificationsList" (click)="viewNotif(item)">
+      <ion-avatar slot="start">
+        <img src="assets/icon/icon-bell.svg">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{item?.title}}</h2>
+        <h3>{{item?.message}}</h3>
+        <h4 style="font-family: 'Lato';font-weight: 400;">{{item?.date}}</h4>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

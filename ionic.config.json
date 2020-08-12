@@ -1,0 +1,8 @@
+{
+  "name": "ZappinPrivilege",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

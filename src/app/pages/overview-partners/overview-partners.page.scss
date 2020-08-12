@@ -1,0 +1,54 @@
+ion-toolbar{
+    text-align: center;
+    margin: 0 auto;
+    --background: #161e29;
+}
+
+ion-content{
+    --background: white;
+}
+ion-back-button{
+    color:white;
+}
+
+.smallLogo{
+    width: 160px;
+    text-align: center;
+    margin: 10px;
+}
+
+.back-button{
+    position: absolute;
+    color: #fff;
+}
+
+.col-partner{
+    text-align: center;
+    padding: 10px;
+}
+
+h5{
+    text-align: left;
+    margin: 0px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+hr{
+    color:gray;
+    background-color:gray
+}
+
+.img-category{
+    width: 200px;
+    height: 135px;
+    border-radius: 10px;
+}
+
+ion-button{
+    color:#d3a768;
+    --background:rgba(0,0,0, 1);
+    font-weight: 800; 
+    font-size: 14px;
+    height: 29px;
+}

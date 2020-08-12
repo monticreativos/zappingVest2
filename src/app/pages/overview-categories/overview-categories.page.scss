@@ -1,0 +1,43 @@
+ion-toolbar{
+    text-align: center;
+    margin: 0 auto;
+    --background: #161e29;
+}
+
+ion-content{
+    --background: #161e29;
+}
+ion-back-button{
+    color:white;
+}
+
+.smallLogo{
+    width: 160px;
+    text-align: center;
+    margin: 10px;
+}
+
+.back-button{
+    position: absolute;
+    color: #fff;
+}
+
+.content-title{
+    --background: #161e29;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.content-title h4{
+    text-align: center;
+    color:  #d3a768;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 10px;
+}
+
+.text-info{
+    text-align: center;
+    color:  #d3a768;
+}
