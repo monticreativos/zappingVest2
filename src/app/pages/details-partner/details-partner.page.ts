@@ -76,7 +76,7 @@ export class DetailsPartnerPage implements OnInit {
         {
           text: 'Appel',
           handler: () => {
-            window.open('tel:34633547517', '_system');
+            window.open('tel:34663318834', '_system');
           }
         },
       ]
