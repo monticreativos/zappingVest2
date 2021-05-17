@@ -27,6 +27,11 @@ ion-content{
     right: 10px;
 }
 
+.gear-icon{
+    font-size: 24px;
+    margin-right: 10px;
+}
+
 .logout-icon, .info-icon{
     font-size: 24px;
 }
@@ -147,4 +152,8 @@ ion-avatar{
 .item-reg{
     font-family: 'Lato';
     font-weight: 300;
+}
+
+.action-sheet-title{
+    font-size: 20px !important;
 }

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './../../services/auth.service';
-import { StorageService } from './../../services/storage.service';
-import { ToastService } from './../../services/toast.service';
+import { AuthService } from '../../services/auth.service';
+import { StorageService } from '../../services/storage.service';
+import { ToastService } from '../../services/toast.service';
 import { Router, NavigationExtras } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -14,15 +15,25 @@ export class OverviewCategoriesPage implements OnInit {
 
   public categories: any;
 
+  public postData = {
+    lng: ''
+  }
+
   constructor(
     private router: Router,
     private authService: AuthService,
-    private toastService: ToastService
-  ) {}
+    private toastService: ToastService,
+    private translateService: TranslateService,
+  ) {
+    this.translateService.setDefaultLang('en');
+  }
   
 
   ngOnInit() {
-    this.authService.getOverViewAllCategories().subscribe(
+    var lng = this.translateService.getBrowserLang();
+    this.postData.lng = lng;
+    this.translateService.use(lng);
+    this.authService.getOverViewAllCategories(this.postData).subscribe(
         (res: any) => {
           this.categories = res;
           console.log(res);
@@ -43,7 +54,7 @@ export class OverviewCategoriesPage implements OnInit {
         item: item
       }
     };
-    this.router.navigate(['/overview-partners'], navigationExtras);
+    this.router.navigate(['/overview-partners-cds'], navigationExtras);
   }
 
 }

@@ -4,18 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPageRoutingModule } from './login-routing.module';
+import { OverviewCategoriesCbPageRoutingModule } from './overview-categories-cb-routing.module';
 
-import { LoginPage } from './login.page';
+import { OverviewCategoriesCbPage } from './overview-categories-cb.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginPageRoutingModule,
-    TranslateModule
+    TranslateModule,
+    OverviewCategoriesCbPageRoutingModule
   ],
-  declarations: [LoginPage]
+  declarations: [OverviewCategoriesCbPage]
 })
-export class LoginPageModule {}
+export class OverviewCategoriesCbPageModule {}

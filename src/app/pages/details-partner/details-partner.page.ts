@@ -16,7 +16,8 @@ import { Location } from '@angular/common';
 export class DetailsPartnerPage implements OnInit {
 
   postData = {
-    id: ''
+    id: '',
+    location: ''
   }
 
   lat: any;
@@ -45,6 +46,8 @@ export class DetailsPartnerPage implements OnInit {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.postData.id = this.router.getCurrentNavigation().extras.state.item.id;
+        let location = window.localStorage.getItem('location');
+        this.postData.location = location;
         this.authService.getDetailsPartner(this.postData).subscribe(
           (res: any) => {
             res.images = JSON.parse(res.images);

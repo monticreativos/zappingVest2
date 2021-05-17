@@ -19,19 +19,51 @@ export class NotificationsPage implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.loadNotifications();
+    var location = window.localStorage.getItem('location');
+    switch (location) {
+      case 'Costa del Sol':
+        this.loadNotificationsCs();
+        break;
+      case 'Costa Blanca':
+        this.loadNotificationsCb();
+        break;
+      default:
+        this.loadNotificationsCs();
+        break;
+    }
   }
 
   ionViewWillEnter() {
-    this.loadNotifications();
+    var location = window.localStorage.getItem('location');
+    switch (location) {
+      case 'Costa del Sol':
+        this.loadNotificationsCs();
+        break;
+      case 'Costa Blanca':
+        this.loadNotificationsCb();
+        break;
+      default:
+        this.loadNotificationsCs();
+        break;
+    }
   }
 
 
-  loadNotifications(){
-    this.authService.getAllNotifications().subscribe(
+  loadNotificationsCs(){
+    this.authService.getAllNotificationsByCs().subscribe(
       (res: any) => {
         this.notificationsList = res;
-        console.log(this.notificationsList);
+      },
+      (error: any) => {
+        this.toastService.presentToast('Problema en la red.');
+      }
+    );
+  }
+
+  loadNotificationsCb(){
+    this.authService.getAllNotificationsByCb().subscribe(
+      (res: any) => {
+        this.notificationsList = res;
       },
       (error: any) => {
         this.toastService.presentToast('Problema en la red.');

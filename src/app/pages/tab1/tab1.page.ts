@@ -3,9 +3,20 @@ import { AuthService } from './../../services/auth.service';
 import { StorageService } from './../../services/storage.service';
 import { ToastService } from './../../services/toast.service';
 import { Router } from '@angular/router';
-import { ActionSheetController, Platform, LoadingController } from '@ionic/angular';
+import { ActionSheetController, Platform, LoadingController, AlertController } from '@ionic/angular';
 import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera/ngx';
 import { NavController } from '@ionic/angular';
+import {
+  Plugins,
+  PushNotification,
+  PushNotificationToken,
+  PushNotificationActionPerformed } from '@capacitor/core';
+
+import { FCM } from 'capacitor-fcm';
+
+const { PushNotifications } = Plugins;
+
+const fcm = new FCM();
 
 
 @Component({
@@ -31,6 +42,8 @@ export class Tab1Page implements OnInit {
     imgBase64: ''
   };
 
+
+
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -40,20 +53,19 @@ export class Tab1Page implements OnInit {
     private camera: Camera,
     private plt: Platform,
     private loadingController: LoadingController,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private alertCtrl: AlertController
   ) {
-
-    this.getData();
 
   }
 
   ngOnInit() {
-    this.getData();
+    
   }
 
   ionViewWillEnter() {
     this.getData();
-    console.log('ionViewWillEnter ')
+    //console.log('ionViewWillEnter FIRST');
   }
 
   getData(){
@@ -62,11 +74,32 @@ export class Tab1Page implements OnInit {
     this.authService.getUser().subscribe(
         (res: any) => {
           this.authUser = res;
-          console.log(res);
+          //console.log(res);
           this.postData.id = res.id;
           this.getSavings(this.postData);
           this.getPointsSave(this.postData);
           this.getSavingsTotal(this.postData);
+          if(res.location == "Costa del Sol"){
+            console.log("CS");
+            fcm
+              .unsubscribeFrom({ topic: 'CB' })
+              .then(() => console.log("unsubscribed from topic CDS"))
+              .catch((err) => console.log(err));
+            fcm
+              .subscribeTo({ topic: "CDS" })
+              .then(r => console.log('subscribe to CDS'))
+              .catch(err => console.log(err));
+          }else{
+            console.log("CB");
+            fcm
+              .unsubscribeFrom({ topic: 'CDS' })
+              .then(() => console.log("unsubscribed from topic CDS"))
+              .catch((err) => console.log(err));
+            fcm
+              .subscribeTo({ topic: "CB" })
+              .then(r => console.log('subscribe to CDS'))
+              .catch(err => console.log(err));
+          }
         },
         (error: any) => {
           this.navCtrl.navigateRoot('/login', { animated: true, animationDirection: 'forward' });
@@ -84,14 +117,14 @@ export class Tab1Page implements OnInit {
   }
 
   segmentChanged(ev: any) {
-    console.log('Segment changed', ev);
+    //console.log('Segment changed', ev);
   }
 
   getSavings(id){
     this.authService.getSaving(id).subscribe(
       (res: any) => {
         this.savings = res;
-        console.log(this.savings);
+        //console.log(this.savings);
       },
       (error: any) => {
         this.toastService.presentToast('Problema en la red.');
@@ -103,7 +136,7 @@ export class Tab1Page implements OnInit {
     this.authService.getSavingTotal(id).subscribe(
       (res: any) => {
         this.savingsTotal = res;
-        console.log("Total: "+this.savingsTotal);
+        //console.log("Total: "+this.savingsTotal);
       },
       (error: any) => {
         this.toastService.presentToast('Problema en la red.');
@@ -115,7 +148,7 @@ export class Tab1Page implements OnInit {
     this.authService.getPointsSave(id).subscribe(
       (res: any) => {
         this.points = res;
-        console.log(this.points);
+        //console.log(this.points);
       },
       (error: any) => {
         this.toastService.presentToast('Problema en la red.');
@@ -127,6 +160,7 @@ export class Tab1Page implements OnInit {
   viewInfo(){
     this.router.navigate(['home/tabs/tabs1/info']);
   }
+
 
 async selectImage() {
     const actionSheet = await this.actionSheetController.create({
@@ -163,9 +197,9 @@ takePicture(sourceType: PictureSourceType) {
   };
 
   this.camera.getPicture(options).then(ImageData => {
-      console.log(ImageData);
+      //console.log(ImageData);
       let base64Image = 'data:image/jpeg;base64,' + ImageData;
-      console.log(base64Image);
+      //console.log(base64Image);
       this.uploadPhoto(base64Image);
   });
 
@@ -184,7 +218,7 @@ takePicture(sourceType: PictureSourceType) {
       (res: any) => {
         loading.dismiss();
         this.authUser = res;
-        console.log(res);
+        //onsole.log(res);
       },
       (error: any) => {
         loading.dismiss();

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons class="back-button" slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <img src="assets/logo.svg" class="smallLogo"/>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-grid class="text-info">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" class="center-col">
+        <img class="img-category" src="assets/icon/costa_del_sol.jpeg" (click)="overviewCostaDelSol()"/>
+        <div class="content-title">
+          <h4>COSTA DEL SOL</h4>
+        </div>
+      </ion-col>
+      <ion-col size="12" class="center-col">
+        <img class="img-category" src="assets/icon/costa_blanca.jpeg" (click)="overviewCostaBlanca()"/>
+        <div class="content-title">
+          <h4>COSTA BLANCA</h4>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

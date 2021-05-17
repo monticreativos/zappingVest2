@@ -23,6 +23,10 @@ export class TakePhotoPage implements OnInit, AfterViewInit{
     imgBase64: ''
   };
 
+  postDataPartners = {
+    location: ''
+  };
+
   partner:any;
   listParnet: any;
 
@@ -101,6 +105,8 @@ export class TakePhotoPage implements OnInit, AfterViewInit{
     let importe = this.postData.import;
     console.log("id: "+id);
     console.log("importe: "+importe);
+    importe = importe.replace(",", ".");
+    this.postData.import = importe;
 
     return (
       this.postData.id_partner &&
@@ -111,7 +117,9 @@ export class TakePhotoPage implements OnInit, AfterViewInit{
   }
 
   loadPartners(){
-    this.authService.getAllPartners().subscribe(
+    let location = window.localStorage.getItem('location');
+    this.postDataPartners.location = location;
+    this.authService.getAllPartners(this.postDataPartners).subscribe(
       (res: any) => {
         this.listParnet = res;
         console.log(this.listParnet);

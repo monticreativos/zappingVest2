@@ -1,11 +1,21 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthConstants } from 'config/auth-constants';
 import { AuthService } from './../../services/auth.service';
-import { StorageService } from './../../services/storage.service';
 import { ToastService } from './../../services/toast.service';
-import { Storage } from  '@ionic/storage';
+import { TranslateService } from '@ngx-translate/core';
+
 import { LoadingController, AlertController  } from '@ionic/angular';
+import {
+  Plugins,
+  PushNotification,
+  PushNotificationToken,
+  PushNotificationActionPerformed } from '@capacitor/core';
+
+import { FCM } from 'capacitor-fcm';
+
+const { PushNotifications } = Plugins;
+
+const fcm = new FCM();
 
 @Component({
   selector: 'app-login',
@@ -14,22 +24,34 @@ import { LoadingController, AlertController  } from '@ionic/angular';
 })
 
 export class LoginPage implements OnInit {
-    postData = {
+
+  postData = {
     email: '',
     password: ''
   };
+
 
   constructor(
     private router: Router,
     private authService: AuthService,
     private toastService: ToastService,
     private loadingController: LoadingController,
-    private alertController: AlertController
-  ) {}
+    private alertController: AlertController,
+    private translateService: TranslateService,
+  ) {
+    this.translateService.setDefaultLang('en');
+  }
 
   public showPassword: boolean = false;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.setLanguage()
+  }
+
+  setLanguage(){
+    var lng = this.translateService.getBrowserLang();
+    this.translateService.use(lng);
+  }
 
   validateInputs() {
     let email = this.postData.email.trim();
@@ -43,8 +65,7 @@ export class LoginPage implements OnInit {
   }
 
   overView(){
-    
-    this.router.navigateByUrl('/overview-categories');
+    this.router.navigateByUrl('/overview-choose');
   }
 
 
@@ -72,10 +93,11 @@ export class LoginPage implements OnInit {
           if (res) {
           // Storing the User data.
           loading.dismiss();
-          console.log(res.access_token);
+          //console.log(res.access_token);
           window.localStorage.setItem('access_token', res.access_token);
           window.localStorage.setItem('id_user', res.id_user);
           window.localStorage.setItem('login', "1");
+          window.localStorage.setItem('location', res.location);
           this.router.navigateByUrl('/home/tabs/tab1');
           } else {
 
@@ -97,5 +119,8 @@ export class LoginPage implements OnInit {
   public onPasswordToggle(): void {
     this.showPassword = !this.showPassword;
   }
+
+
+ 
 
 }

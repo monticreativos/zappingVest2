@@ -1,38 +1,48 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
-import { AuthService } from './../../services/auth.service';
-import { ToastService } from './../../services/toast.service';
+import { AuthService } from '../../services/auth.service';
+import { ToastService } from '../../services/toast.service';
 import { LoadingController, AlertController, Platform } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-partner',
-  templateUrl: './partner.page.html',
-  styleUrls: ['./partner.page.scss'],
+  selector: 'app-overview-partners',
+  templateUrl: './overview-partners.page.html',
+  styleUrls: ['./overview-partners.page.scss'],
 })
-export class PartnerPage implements OnInit {
+export class OverviewPartnersPage implements OnInit {
+
   postData = {
     id: '',
-    location: ''
+    lng: ''
   }
+
   listParnet: any;
 
-  constructor(private route: ActivatedRoute, private router: Router, private authService: AuthService, private toastService: ToastService, private alertController: AlertController, private platform: Platform) {
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router, 
+    private authService: AuthService, 
+    private toastService: ToastService, 
+    private alertController: AlertController, 
+    private platform: Platform,
+    private translateService: TranslateService,
+    ) {
 
+    this.postData.lng = this.translateService.getBrowserLang();
 
     this.platform.backButton.subscribeWithPriority(10, () => {
       this.listParnet = null;
       this.postData.id = null;
-      this.router.navigate(['home/tabs/tab2']);
+      this.router.navigate(['/overview-categories-cds']);
     });
 
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.postData.id = this.router.getCurrentNavigation().extras.state.item.id;
-        let location = window.localStorage.getItem('location');
-        this.postData.location = location;
-        console.log("Datos: "+this.postData);
-        this.authService.getPartner(this.postData).subscribe(
+        console.log("id categoria: "+this.postData.id);
+        this.authService.getOverViewPartnerCds(this.postData).subscribe(
           (res: any) => {
 
             res.forEach(element => {
@@ -64,7 +74,7 @@ export class PartnerPage implements OnInit {
         item: item
       }
     };
-    this.router.navigate(['home/tabs/tabs2/listCategory/detailsPartner'], navigationExtras);
+    this.router.navigate(['/overview-details-partners-cds'], navigationExtras);
   }
 
   infoDiscount(item){
@@ -94,6 +104,5 @@ export class PartnerPage implements OnInit {
 
     await alert.present();
   }
-
 
 }

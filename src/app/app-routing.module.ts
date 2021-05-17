@@ -37,16 +37,32 @@ const routes: Routes = [
     loadChildren: () => import('./pages/info/info.module').then( m => m.InfoPageModule)
   },
   {
-    path: 'overview-categories',
-    loadChildren: () => import('./pages/overview-categories/overview-categories.module').then( m => m.OverviewCategoriesPageModule)
+    path: 'overview-categories-cds',
+    loadChildren: () => import('./pages/overview-categories-cds/overview-categories.module').then( m => m.OverviewCategoriesPageModule)
   },
   {
-    path: 'overview-partners',
-    loadChildren: () => import('./pages/overview-partners/overview-partners.module').then( m => m.OverviewPartnersPageModule)
+    path: 'overview-partners-cds',
+    loadChildren: () => import('./pages/overview-partners-cds/overview-partners.module').then( m => m.OverviewPartnersPageModule)
   },
   {
-    path: 'overview-details-partners',
-    loadChildren: () => import('./pages/overview-details-partners/overview-details-partners.module').then( m => m.OverviewDetailsPartnersPageModule)
+    path: 'overview-details-partners-cds',
+    loadChildren: () => import('./pages/overview-details-partners-cds/overview-details-partners.module').then( m => m.OverviewDetailsPartnersPageModule)
+  },
+  {
+    path: 'overview-choose',
+    loadChildren: () => import('./pages/overview-choose/overview-choose.module').then( m => m.OverviewChoosePageModule)
+  },
+  {
+    path: 'overview-categories-cb',
+    loadChildren: () => import('./pages/overview-categories-cb/overview-categories-cb.module').then( m => m.OverviewCategoriesCbPageModule)
+  },
+  {
+    path: 'overview-partners-cb',
+    loadChildren: () => import('./pages/overview-partners-cb/overview-partners-cb.module').then( m => m.OverviewPartnersCbPageModule)
+  },
+  {
+    path: 'overview-details-partners-cb',
+    loadChildren: () => import('./pages/overview-details-partners-cb/overview-details-partners-cb.module').then( m => m.OverviewDetailsPartnersCbPageModule)
   }
 
 ];

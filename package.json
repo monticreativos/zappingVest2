@@ -36,6 +36,8 @@
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^5.0.0",
     "@ionic/storage": "^2.2.0",
+    "@ngx-translate/core": "^12.1.2",
+    "@ngx-translate/http-loader": "^6.0.0",
     "@types/googlemaps": "^3.39.11",
     "capacitor-fcm": "^2.0.0",
     "cordova-android-support-gradle-release": "^3.0.1",

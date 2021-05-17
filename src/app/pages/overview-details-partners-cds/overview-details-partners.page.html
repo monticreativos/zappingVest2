@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons class="back-button" slot="start">
+      <ion-back-button defaultHref="/overview-partners" (click)="back()"></ion-back-button>
+    </ion-buttons>
+    <img src="assets/logo.svg" class="smallLogo"/>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid *ngIf="detailsPartner">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="10" class="center-col details-partner">
+        <h1>{{detailsPartner?.name}}</h1>
+        <h3>{{detailsPartner?.location}}</h3>
+        <ion-slides>
+
+          <ion-slides pager>
+            <ion-slide *ngFor="let item of detailsPartner?.images">
+              <div class="slide">
+                <img class="img-category" src="https://desarrollo.crmhawkins.com/storage/{{ item }}"/>
+              </div>
+            </ion-slide>
+          </ion-slides>
+          
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+    <div class="details-discount">
+      <h1>{{detailsPartner?.discount_large}}</h1>
+    </div>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="10" class="center-col details-partner">
+        <div class="details-description">
+          <p>{{detailsPartner?.description}}</p>
+          <hr>
+        </div> 
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="10" class="center-col details-partner">
+        <agm-map
+        [style.height.px]="height"
+        [latitude]="lat"
+        [longitude]="lng"
+        [zoom]="13">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+       </agm-map>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

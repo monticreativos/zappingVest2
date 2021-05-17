@@ -1,37 +1,48 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
-import { AuthService } from './../../services/auth.service';
-import { ToastService } from './../../services/toast.service';
+import { AuthService } from '../../services/auth.service';
+import { ToastService } from '../../services/toast.service';
 import { LoadingController, AlertController, Platform } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-overview-partners',
-  templateUrl: './overview-partners.page.html',
-  styleUrls: ['./overview-partners.page.scss'],
+  selector: 'app-overview-partners-cb',
+  templateUrl: './overview-partners-cb.page.html',
+  styleUrls: ['./overview-partners-cb.page.scss'],
 })
-export class OverviewPartnersPage implements OnInit {
+export class OverviewPartnersCbPage implements OnInit {
 
   postData = {
-    id: ''
+    id: '',
+    lng: ''
   }
 
   listParnet: any;
 
-  constructor(private route: ActivatedRoute, private router: Router, private authService: AuthService, private toastService: ToastService, private alertController: AlertController, private platform: Platform) {
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router, 
+    private authService: AuthService, 
+    private toastService: ToastService, 
+    private alertController: AlertController, 
+    private platform: Platform,
+    private translateService: TranslateService,
+    ) {
 
+    this.postData.lng = this.translateService.getBrowserLang();
 
     this.platform.backButton.subscribeWithPriority(10, () => {
       this.listParnet = null;
       this.postData.id = null;
-      this.router.navigate(['/overview-categories']);
+      this.router.navigate(['/overview-categories-cb']);
     });
 
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.postData.id = this.router.getCurrentNavigation().extras.state.item.id;
         console.log("id categoria: "+this.postData.id);
-        this.authService.getOverViewPartner(this.postData).subscribe(
+        this.authService.getPartnerOverViewCb(this.postData).subscribe(
           (res: any) => {
 
             res.forEach(element => {
@@ -63,7 +74,7 @@ export class OverviewPartnersPage implements OnInit {
         item: item
       }
     };
-    this.router.navigate(['/overview-details-partners'], navigationExtras);
+    this.router.navigate(['/overview-details-partners-cb'], navigationExtras);
   }
 
   infoDiscount(item){

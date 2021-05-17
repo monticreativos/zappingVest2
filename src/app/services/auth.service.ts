@@ -41,11 +41,13 @@ providedIn: 'root'
     return this.httpService.get('getAllCategories', token);
   }
 
-  getPartner(idCategory: any): Observable<any>{
+  /******/ 
+  getPartner(data: any): Observable<any>{
     let token = window.localStorage.getItem('access_token');
-    return this.httpService.post('getPartner', idCategory, token);
+    return this.httpService.post('getPartner', data, token);
   }
 
+  /******/ 
   getDetailsPartner(idPartner: any): Observable<any>{
     let token = window.localStorage.getItem('access_token');
     return this.httpService.post('getDetailsPartner', idPartner, token);
@@ -56,14 +58,25 @@ providedIn: 'root'
     return this.httpService.post('saveTicket', formData, token);
   }
 
-  getAllPartners(): Observable <any>{
+  /******/ 
+  getAllPartners(data: any): Observable <any>{
     let token = window.localStorage.getItem('access_token');
-    return this.httpService.get('getAllPartners', token);
+    return this.httpService.post('getAllPartners', data, token);
   }
 
   getAllNotifications(): Observable <any>{
     let token = window.localStorage.getItem('access_token');
     return this.httpService.get('getAllNotifications', token);
+  }
+
+  getAllNotificationsByCs(): Observable <any>{
+    let token = window.localStorage.getItem('access_token');
+    return this.httpService.get('getAllNotificationsByCs', token);
+  }
+
+  getAllNotificationsByCb(): Observable <any>{
+    let token = window.localStorage.getItem('access_token');
+    return this.httpService.get('getAllNotificationsByCb', token);
   }
 
   getFriendsValidates(idUser: any): Observable <any>{
@@ -96,6 +109,16 @@ providedIn: 'root'
     return this.httpService.post('updatePicProfile', formData, token);
   }
 
+  changeLocationCb(formData: any){
+    let token = window.localStorage.getItem('access_token');
+    return this.httpService.post('changeLocationCostaBlanca', formData, token);
+  }
+
+  changeLocationCs(formData: any){
+    let token = window.localStorage.getItem('access_token');
+    return this.httpService.post('changeLocationCostaDelSol', formData, token);
+  }
+
   logout() {
     this.storageService.removeStorageItem("access_token").then(res => {
       this.userData$.next('');
@@ -105,6 +128,7 @@ providedIn: 'root'
       window.localStorage.removeItem("access_token");
       window.localStorage.removeItem("id_user");
       window.localStorage.removeItem("login");
+      window.localStorage.removeItem("location");
 
       this.navCtrl.navigateRoot('/login', { animated: true, animationDirection: 'forward' });
     });
@@ -113,16 +137,26 @@ providedIn: 'root'
 
   /****************** CALLS OVERVIEW APP WITHOUT TOKENS *******************/
 
-  getOverViewAllCategories(): Observable<any>{
-    return this.httpService.getCallApiOverView('getAllCategories');
+
+  getOverViewAllCategories(lng: any): Observable<any>{
+    return this.httpService.postCallApiOverView('getCategoriesOverView', lng);
   }
 
-  getOverViewsDetailsPartner(idPartner: any): Observable<any>{
-    return this.httpService.postCallApiOverView('getDetailsPartner', idPartner);
+  getOverViewsDetailsPartnerCds(idPartner: any): Observable<any>{
+    return this.httpService.postCallApiOverView('getDetailsPartnerOverViewCds', idPartner);
   }
 
-  getOverViewPartner(idCategory: any): Observable<any>{
-    return this.httpService.postCallApiOverView('getPartner', idCategory);
+  getOverViewPartnerCds(idCategory: any): Observable<any>{
+    return this.httpService.postCallApiOverView('getPartnerOverViewCds', idCategory);
+  }
+
+  /******** *************/
+  getPartnerOverViewCb(idPartner: any): Observable<any>{
+    return this.httpService.postCallApiOverView('getPartnerOverViewCb', idPartner);
+  }
+
+  getDetailsPartnerOverViewCb(idCategory: any): Observable<any>{
+    return this.httpService.postCallApiOverView('getDetailsPartnerOverViewCb', idCategory);
   }
 
 }

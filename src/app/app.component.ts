@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+
 import {
   Plugins,
   PushNotification,
@@ -89,7 +90,6 @@ export class AppComponent implements OnInit {
     PushNotifications.addListener('pushNotificationReceived',
       (notification: PushNotification) => {
         console.log('Push received: ' + JSON.stringify(notification));
-        
       }
     );
 

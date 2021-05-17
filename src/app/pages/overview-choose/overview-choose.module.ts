@@ -1,21 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
+
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPageRoutingModule } from './login-routing.module';
+import { OverviewChoosePageRoutingModule } from './overview-choose-routing.module';
 
-import { LoginPage } from './login.page';
+import { OverviewChoosePage } from './overview-choose.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginPageRoutingModule,
-    TranslateModule
+    OverviewChoosePageRoutingModule
   ],
-  declarations: [LoginPage]
+  declarations: [OverviewChoosePage]
 })
-export class LoginPageModule {}
+export class OverviewChoosePageModule {}

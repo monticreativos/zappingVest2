@@ -23,7 +23,7 @@
             </ion-select>
           </ion-item>
           <ion-item>
-            <ion-input inputmode="numeric" (keyup.enter)="closeKeyboard()" enterkeyhint="done" [(ngModel)]="postData.import" placeholder="Montant €"></ion-input>
+            <ion-input type="text" inputmode="decimal" (keyup.enter)="closeKeyboard()" enterkeyhint="done" [(ngModel)]="postData.import" placeholder="Montant €"></ion-input>
           </ion-item>
           <img class="btn-camera" src="assets/icon/btn_camera.svg" (click)="takePicture()"> 
         </ion-col>

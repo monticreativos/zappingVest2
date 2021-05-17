@@ -14,7 +14,8 @@
     <ion-row class="ion-justify-content-center">
       <ion-col size="10" class="center-col">
         <div class="icon-ticket">
-          <p>Un ami à vous est intéressé par l’achat d’un bien au soleil ? Partagez avec nous son numéro de téléphone afin que nous puissions l’aider à trouver son bonheur en Espagne ! S’il achète via Zapinvest, il vous rapportera 7000 points et vous lui permettrez de bénéficier ses 2000 premiers points</p>
+          <p>Un ami à vous est intéressé par l’achat d’un bien au soleil ? Partagez avec nous son numéro de téléphone afin que nous puissions l’aider à trouver son bonheur en Espagne ! S’il achète via Zapinvest, il vous rapportera 7000 points et vous lui permettrez de bénéficier de ses 2000 premiers points</p>
+          <p>Offre soumise à conditions : voir règlement dans « i » sur le profil</p>
         </div>
         <ion-item>
           <ion-input type="text"  [(ngModel)]="postData.nombre" placeholder="Prénom"></ion-input>
@@ -31,13 +32,13 @@
         <ion-button share="round" expand="block" (click)="sendEmail()">Envoyer</ion-button>
 
         <div class="container-friends" *ngIf=" listFriends?.length !=0 ">
-          <h4 class="title-card">Zapamis</h4>
+          <h4 class="title-card">ZapAmis</h4>
           <ion-card>
             <ion-card-content>
               <ion-list lines="none">
-                <ion-item *ngFor="let item of listFriends" >
-                  <table class="table" style="width:100%;">
-                    <tr>
+                <ion-item>
+                  <table class="table table-friends" style="width:100%;">
+                    <tr *ngFor="let item of listFriends">
                       <td style="text-align:center;">
                         <img class="icon-friend" src="assets/icon/icon-friend.svg">
                       </td>
