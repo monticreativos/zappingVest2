@@ -69,6 +69,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
+    "cordova-browser": "^6.0.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-ionic-webview": "^4.2.1",
     "cordova-plugin-splashscreen": "^5.0.2",
@@ -97,8 +98,11 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-android-support-gradle-release": {}
+      "cordova-android-support-gradle-release": {},
+      "cordova-plugin-camera": {}
     },
-    "platforms": []
+    "platforms": [
+      "browser"
+    ]
   }
 }

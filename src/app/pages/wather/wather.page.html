@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons class="back-button" slot="start">
+      <ion-back-button
+        defaultHref="/home/tabs/tab1"
+        (click)="back()"
+      ></ion-back-button>
+    </ion-buttons>
+    <img src="assets/logo.svg" class="smallLogo" />
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- List of Text Items -->
+  <ion-list>
+    <ion-list-header>{{ciudad?.name}}</ion-list-header>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="http://openweathermap.org/img/w/{{icon?.icon}}.png" />
+      </ion-avatar>
+      <ion-label slot="start">
+        <h4 class="red">Maxima: {{temperaturaMax | number:'1.2-2'}} ºC</h4>
+        <h2 class="green">Media: {{temperatura | number:'1.2-2'}} ºC</h2>
+        <h4 class="orange">Minima: {{temperaturaMin | number: '1.2-2'}} ºC</h4>
+      </ion-label>
+      <ion-label>
+        <h2>{{icon?.main}}</h2>
+        <h3>{{icon?.description}}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

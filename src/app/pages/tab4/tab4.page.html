@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <img src="assets/logo.svg" class="smallLogo" />
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <div *ngFor="let item of posts">
+    <ion-card (click)="clickCategory(item)">
+      <img src="https://desarrollo.crmhawkins.com/storage/{{item?.image}}" />
+      <ion-card-header>
+        <ion-card-title>{{item?.titulo}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content [innerHTML]="item?.descripcion">
+        {{item?.descripcion}}
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

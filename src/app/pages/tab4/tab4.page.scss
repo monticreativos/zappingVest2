@@ -1,0 +1,59 @@
+icon-card {
+  --background: white;
+}
+
+ion-toolbar {
+  text-align: center;
+  margin: 0 auto;
+  --background: #161e29;
+}
+
+.smallLogo {
+  width: 160px;
+  text-align: center;
+  margin: 10px;
+}
+
+.content-title {
+  --background: #161e29;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.content-title h4 {
+  text-align: center;
+  color: #d3a768;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 10px;
+}
+
+ion-content {
+  background-color: white !important;
+  --ion-background-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  ion-content {
+    background-color: white !important;
+    --ion-background-color: white;
+  }
+
+  icon-card {
+    --background: white;
+  }
+
+  :host {
+    --background: white !important;
+  }
+}
+icon-card {
+  --background: white;
+}
+ion-card.ios.hydrated {
+  background: #161e29;
+}
+ion-card-title {
+  color: #d3a768;
+}

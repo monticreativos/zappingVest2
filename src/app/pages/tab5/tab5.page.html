@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <img src="assets/logo.svg" class="smallLogo" />
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+    <ion-list-header>Agenda</ion-list-header>
+    <div *ngFor="let event of events">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img
+            src="https://desarrollo.crmhawkins.com/storage/{{event?.image}}"
+          />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{event?.titulo}}</h2>
+          <h3>
+            {{event?.lugar}} / {{event?.localidad}} / {{event?.provincia}}
+          </h3>
+          <h3>
+            {{event?.hora}} -> {{event?.fecha_evento | date: 'shortDate'}}
+          </h3>
+
+          <p>{{event?.descripcion}}</p>
+        </ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>

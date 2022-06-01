@@ -1,11 +1,19 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons class="logout-button" slot="start">
-      <ion-icon class="logout-icon" (click)="logout()" src="assets/icon/icon-exit.svg"></ion-icon>
+      <ion-icon
+        class="logout-icon"
+        (click)="logout()"
+        src="assets/icon/icon-exit.svg"
+      ></ion-icon>
     </ion-buttons>
-    <img src="assets/logo.svg" class="smallLogo"/>
+    <img src="assets/logo.svg" class="smallLogo" />
     <ion-buttons class="info-button" slot="end">
-      <ion-icon class="info-icon" (click)="viewInfo()" src="assets/icon/icon-info.svg"></ion-icon>
+      <ion-icon
+        class="info-icon"
+        (click)="viewInfo()"
+        src="assets/icon/icon-info.svg"
+      ></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -17,13 +25,17 @@
         <div class="profile-avatar" *ngIf="authUser?.avatar">
           <div class="container-avatar" (click)="changePhoto()">
             <div class="avatar">
-              <img src="https://desarrollo.crmhawkins.com/storage/{{authUser?.avatar}}"/>
+              <img
+                src="https://desarrollo.crmhawkins.com/storage/{{authUser?.avatar}}"
+              />
             </div>
           </div>
           <h1 class="name-profile">{{authUser?.name}}</h1>
           <span class="subtitle-profile">Zap-Attitude</span>
-          <div class="content-points"> 
-            <ion-button share="round" class="zap-points" ion-button>Points: {{authUser?.points}}</ion-button>
+          <div class="content-points">
+            <ion-button share="round" class="zap-points" ion-button>
+              Points: {{authUser?.points}}
+            </ion-button>
           </div>
         </div>
       </ion-col>
@@ -32,35 +44,63 @@
       <ion-col size="10" class="center-col">
         <div class="content-tabs">
           <ion-segment [(ngModel)]="segment" mode="md">
-              <ion-segment-button value="discounts" mode="md">
-                <ion-icon class="icon-tabs" src="assets/icon/icon-discount.svg"></ion-icon>
-              </ion-segment-button>
-              <ion-segment-button value="pig" mode="md">
-                <ion-icon class="icon-tabs" src="assets/icon/icon-pig.svg"></ion-icon>
-              </ion-segment-button>
-              <ion-segment-button value="books" mode="md">
-                <ion-icon class="icon-tabs" src="assets/icon/icon-book.svg"></ion-icon>
-              </ion-segment-button>
+            <ion-segment-button value="discounts" mode="md">
+              <ion-icon
+                class="icon-tabs"
+                src="assets/icon/icon-discount.svg"
+              ></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="pig" mode="md">
+              <ion-icon
+                class="icon-tabs"
+                src="assets/icon/icon-pig.svg"
+              ></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="books" mode="md">
+              <ion-icon
+                class="icon-tabs"
+                src="assets/icon/icon-book.svg"
+              ></ion-icon>
+            </ion-segment-button>
           </ion-segment>
 
           <div [ngSwitch]="segment">
-
             <div *ngSwitchCase="'discounts'">
               <h4 class="title-card">Points accumulés</h4>
               <ion-card>
                 <ion-card-content>
                   <ion-list lines="none">
-                    <ion-item *ngFor="let item of points" >
+                    <ion-item *ngFor="let item of points">
                       <ion-avatar slot="start">
-                        <img src="assets/icon/registro.svg">
+                        <img src="assets/icon/registro.svg" />
                       </ion-avatar>
-                      <table class="table" style="width:100%;table-layout: fixed;">
+                      <table
+                        class="table"
+                        style="width: 100%; table-layout: fixed;"
+                      >
                         <tr>
-                          <td style="text-align:center;border-left: 1px solid #656565;">
-                            <h2 class="item-reg" style="color: white;">{{item?.name }}</h2>
+                          <td
+                            style="
+                              text-align: center;
+                              border-left: 1px solid #656565;
+                            "
+                          >
+                            <h2 class="item-reg" style="color: white;">
+                              {{item?.name }}
+                            </h2>
                           </td>
-                          <td style="text-align:center;border-left: 1px solid #656565;">
-                            <h2 class="item-reg" style="font-weight: 500;color:#d3a768;">{{item?.points }}</h2>
+                          <td
+                            style="
+                              text-align: center;
+                              border-left: 1px solid #656565;
+                            "
+                          >
+                            <h2
+                              class="item-reg"
+                              style="font-weight: 500; color: #d3a768;"
+                            >
+                              {{item?.points }}
+                            </h2>
                           </td>
                         </tr>
                       </table>
@@ -69,24 +109,53 @@
                 </ion-card-content>
               </ion-card>
             </div>
-          
+
             <div *ngSwitchCase="'pig'">
-              <h4 class="title-card">Argent économisé<br>Total: {{savingsTotal}}</h4>
+              <h4 class="title-card">
+                Argent économisé
+                <br />
+                Total: {{savingsTotal}}
+              </h4>
               <ion-card>
                 <ion-card-content>
                   <ion-list lines="none">
-                    <ion-item *ngFor="let item of savings" >
+                    <ion-item *ngFor="let item of savings">
                       <ion-avatar slot="start">
-                        <img src="assets/icon/ahorro.svg">
+                        <img src="assets/icon/ahorro.svg" />
                       </ion-avatar>
-                      <table class="table" style="width:100%;table-layout: fixed;">
+                      <table
+                        class="table"
+                        style="width: 100%; table-layout: fixed;"
+                      >
                         <tr>
-                          <td style="text-align:center;border-left: 1px solid #656565;">
-                            <h2 class="item-reg" style="color: white;">{{item?.name }}</h2>
+                          <td
+                            style="
+                              text-align: center;
+                              border-left: 1px solid #656565;
+                            "
+                          >
+                            <h2 class="item-reg" style="color: white;">
+                              {{item?.name }}
+                            </h2>
                           </td>
-                          <td style="text-align:center;border-left: 1px solid #656565;">
-                            <h2 *ngIf=" item?.option == 'descuento'" class="item-reg" style="font-weight: 500;color:#d3a768;">{{item?.saving }}</h2>
-                            <img *ngIf=" item?.option == 'regalo'" class="gif-reg" src="assets/icon/gift.svg">
+                          <td
+                            style="
+                              text-align: center;
+                              border-left: 1px solid #656565;
+                            "
+                          >
+                            <h2
+                              *ngIf=" item?.option == 'descuento'"
+                              class="item-reg"
+                              style="font-weight: 500; color: #d3a768;"
+                            >
+                              {{item?.saving }}
+                            </h2>
+                            <img
+                              *ngIf=" item?.option == 'regalo'"
+                              class="gif-reg"
+                              src="assets/icon/gift.svg"
+                            />
                           </td>
                         </tr>
                       </table>
@@ -101,17 +170,32 @@
               <ion-card>
                 <ion-card-content>
                   <ion-list lines="none">
-                    <ion-item *ngFor="let item of savings" >
+                    <ion-item *ngFor="let item of savings">
                       <ion-avatar slot="start">
-                        <img src="assets/icon/ubicacion.svg">
+                        <img src="assets/icon/ubicacion.svg" />
                       </ion-avatar>
-                      <table class="table" style="width:100%;table-layout: fixed;">
+                      <table
+                        class="table"
+                        style="width: 100%; table-layout: fixed;"
+                      >
                         <tr>
-                          <td style="text-align:center;border-left: 1px solid #656565;">
-                            <h2 class="item-reg" style="color: white;">{{item?.name }}</h2>
+                          <td
+                            style="
+                              text-align: center;
+                              border-left: 1px solid #656565;
+                            "
+                          >
+                            <h2 class="item-reg" style="color: white;">
+                              {{item?.name }}
+                            </h2>
                           </td>
-                          <td style="text-align:center;">
-                            <h2 class="item-reg" style="font-weight: 500;color:#d3a768;">{{item?.fecha }}</h2>
+                          <td style="text-align: center;">
+                            <h2
+                              class="item-reg"
+                              style="font-weight: 500; color: #d3a768;"
+                            >
+                              {{item?.fecha }}
+                            </h2>
                           </td>
                         </tr>
                       </table>
@@ -120,10 +204,12 @@
                 </ion-card-content>
               </ion-card>
             </div>
-
+            <button class="botonTiempo" (click)="onSubmit()">
+              Click Wather
+            </button>
           </div>
-        </div>   
-    </ion-col>
+        </div>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

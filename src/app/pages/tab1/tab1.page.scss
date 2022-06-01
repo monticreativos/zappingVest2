@@ -1,159 +1,174 @@
-
-ion-toolbar{
-    text-align: center;
-    margin: 0 auto;
-    --background: #161e29;
+ion-toolbar {
+  text-align: center;
+  margin: 0 auto;
+  --background: #161e29;
 }
 
-ion-content{
-    --background:#fff;
+ion-content {
+  --background: #fff;
 }
 
-.smallLogo{
-    width: 160px;
-    text-align: center;
-    margin: 10px;
+.smallLogo {
+  width: 160px;
+  text-align: center;
+  margin: 10px;
 }
 
-.logout-button{
-    position: absolute;
-    color: #fff;
-    left: 10px;
+.logout-button {
+  position: absolute;
+  color: #fff;
+  left: 10px;
 }
 
-.info-button{
-    position: absolute;
-    color: #fff;
-    right: 10px;
+.info-button {
+  position: absolute;
+  color: #fff;
+  right: 10px;
 }
 
-.gear-icon{
-    font-size: 24px;
-    margin-right: 10px;
+.gear-icon {
+  font-size: 24px;
+  margin-right: 10px;
 }
 
-.logout-icon, .info-icon{
-    font-size: 24px;
+.logout-icon,
+.info-icon {
+  font-size: 24px;
 }
 
-.profile-avatar{
-    padding-top: 30px;
-    text-align: center;
+.profile-avatar {
+  padding-top: 30px;
+  text-align: center;
 }
 
-.container-avatar{
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    margin: 0 auto;
+.container-avatar {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin: 0 auto;
 }
 
-.avatar{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding: 100% 0 0;
-    border-radius: 50%;
-    overflow: hidden;
-    border:3px solid #000;
+.avatar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 100% 0 0;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #000;
 }
 
-.avatar img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.avatar img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.gif-reg{
-    width: 20px;
+.gif-reg {
+  width: 20px;
 }
 
-.name-profile{
-    text-align: center;
-    text-transform: uppercase;
-    color: black;
+.name-profile {
+  text-align: center;
+  text-transform: uppercase;
+  color: black;
 }
 
-.subtitle-profile{
-    font-style: italic;
-    color: #999;
+.subtitle-profile {
+  font-style: italic;
+  color: #999;
 }
 
-ion-button{
-    margin: 10px;
-    --background: rgb(238,205,134);
-    --background: linear-gradient(0deg, rgba(238,205,134,1) 0%, rgba(155,122,75,1) 100%);
-    color:#000;
-    font-weight: 800; 
-    width: auto;
+ion-button {
+  margin: 10px;
+  --background: rgb(238, 205, 134);
+  --background: linear-gradient(
+    0deg,
+    rgba(238, 205, 134, 1) 0%,
+    rgba(155, 122, 75, 1) 100%
+  );
+  color: #000;
+  font-weight: 800;
+  width: auto;
 }
 
-ion-segment{
-    background: #161e29;
-    border-radius: 15px;
-    border-bottom: 0px;
+ion-segment {
+  background: #161e29;
+  border-radius: 15px;
+  border-bottom: 0px;
 }
 
 ion-segment-button {
-    border-bottom: 0px;
+  border-bottom: 0px;
 }
 
-.segment-button-checked{
-    border-bottom: 2px solid #d3a768;
-
+.segment-button-checked {
+  border-bottom: 2px solid #d3a768;
 }
 
-.icon-tabs{
-    width: 200px;
-    height: 40px;
+.icon-tabs {
+  width: 200px;
+  height: 40px;
 }
 
-ion-card-header{
-    padding: 0px;
-    margin: 0px;
-    --background: #161e29;
+ion-card-header {
+  padding: 0px;
+  margin: 0px;
+  --background: #161e29;
 }
 
 ion-card {
-    margin: 0px;
-    padding: 0px;
-    --background: #161e29;
-    border-radius: 15px;
+  margin: 0px;
+  padding: 0px;
+  --background: #161e29;
+  border-radius: 15px;
 }
 
-ion-card-content{
-    --background: #161e29;
+ion-card-content {
+  --background: #161e29;
 }
 
-ion-list{
-    padding: 0px;
-    --background: #161e29;
+ion-list {
+  padding: 0px;
+  --background: #161e29;
 }
 
-ion-item{
-    --background: #161e29;
+ion-item {
+  --background: #161e29;
 }
 
-ion-avatar{
-    margin: 0 30px 0 0;
+ion-avatar {
+  margin: 0 30px 0 0;
 }
 
-.title-card{
-    color: #161e29;
-    background-color: #d3a768;
-    border-radius: 30px;
-    padding: 5px 15px;
-    text-align: center;
+.title-card {
+  color: #161e29;
+  background-color: #d3a768;
+  border-radius: 30px;
+  padding: 5px 15px;
+  text-align: center;
 }
 
-.item-reg{
-    font-family: 'Lato';
-    font-weight: 300;
+.item-reg {
+  font-family: 'Lato';
+  font-weight: 300;
 }
 
-.action-sheet-title{
-    font-size: 20px !important;
+.action-sheet-title {
+  font-size: 20px !important;
+}
+
+.botonTiempo {
+  width: 100%;
+  margin-top: 40px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 0.5rem;
+  color: white;
+  background-color: #18abff;
+  border-radius: 30px;
+  text-align: center;
 }

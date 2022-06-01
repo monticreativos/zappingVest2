@@ -1,162 +1,192 @@
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { HttpService } from './http.service';
-import { StorageService } from './storage.service';
-import { AuthConstants } from 'config/auth-constants';
-import { Storage } from  '@ionic/storage';
-import { NavController } from '@ionic/angular';
+import { Injectable } from '@angular/core'
+import { Router } from '@angular/router'
+import { BehaviorSubject, Observable } from 'rxjs'
+import { HttpService } from './http.service'
+import { StorageService } from './storage.service'
+import { AuthConstants } from 'config/auth-constants'
+import { Storage } from '@ionic/storage'
+import { NavController } from '@ionic/angular'
 
 @Injectable({
-providedIn: 'root'
+  providedIn: 'root',
 })
-  export class AuthService {
-  userData$ = new BehaviorSubject<any>([]);
+export class AuthService {
+  userData$ = new BehaviorSubject<any>([])
 
   constructor(
     private httpService: HttpService,
     private storageService: StorageService,
     private router: Router,
     private localStorage: Storage,
-    private navCtrl: NavController
+    private navCtrl: NavController,
   ) {}
 
   getUserData() {
-    this.storageService.get('access_token').then(res => {
-      this.userData$.next(res);
-    });
+    this.storageService.get('access_token').then((res) => {
+      this.userData$.next(res)
+    })
   }
 
   login(postData: any): Observable<any> {
-    return this.httpService.auth('login', postData);
+    return this.httpService.auth('login', postData)
   }
 
-  getUser(): Observable<any>{
-    let token = window.localStorage.getItem('access_token');
-    return this.httpService.get('user', token);
+  getUser(): Observable<any> {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.get('user', token)
   }
 
-  getAllCategories(): Observable<any>{
-    let token = window.localStorage.getItem('access_token');
-    return this.httpService.get('getAllCategories', token);
+  getAllCategories(): Observable<any> {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.get('getAllCategories', token)
   }
 
-  /******/ 
-  getPartner(data: any): Observable<any>{
-    let token = window.localStorage.getItem('access_token');
-    return this.httpService.post('getPartner', data, token);
+  /******/
+
+  getPartner(data: any): Observable<any> {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.post('getPartner', data, token)
   }
 
-  /******/ 
-  getDetailsPartner(idPartner: any): Observable<any>{
-    let token = window.localStorage.getItem('access_token');
-    return this.httpService.post('getDetailsPartner', idPartner, token);
+  /******/
+
+  getDetailsPartner(idPartner: any): Observable<any> {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.post('getDetailsPartner', idPartner, token)
+  }
+
+  getPostById(idPartner: any): Observable<any> {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.post('getPostById', idPartner, token)
   }
 
   saveTicket(formData: any) {
-    let token = window.localStorage.getItem('access_token');
-    return this.httpService.post('saveTicket', formData, token);
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.post('saveTicket', formData, token)
   }
 
-  /******/ 
-  getAllPartners(data: any): Observable <any>{
-    let token = window.localStorage.getItem('access_token');
-    return this.httpService.post('getAllPartners', data, token);
+  /******/
+
+  getAllPartners(data: any): Observable<any> {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.post('getAllPartners', data, token)
   }
 
-  getAllNotifications(): Observable <any>{
-    let token = window.localStorage.getItem('access_token');
-    return this.httpService.get('getAllNotifications', token);
+  getAllEventos(): Observable<any> {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.get('getAllEventos', token)
   }
 
-  getAllNotificationsByCs(): Observable <any>{
-    let token = window.localStorage.getItem('access_token');
-    return this.httpService.get('getAllNotificationsByCs', token);
+  getAllPost(): Observable<any> {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.get('getAllPost', token)
   }
 
-  getAllNotificationsByCb(): Observable <any>{
-    let token = window.localStorage.getItem('access_token');
-    return this.httpService.get('getAllNotificationsByCb', token);
+  getAllNotifications(): Observable<any> {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.get('getAllNotifications', token)
   }
 
-  getFriendsValidates(idUser: any): Observable <any>{
-    let token = window.localStorage.getItem('access_token');
-    return this.httpService.post('getFriendsValidates', idUser, token);
+  getAllNotificationsByCs(): Observable<any> {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.get('getAllNotificationsByCs', token)
   }
 
-  inviteFriend(formData: any): Observable <any>{
-    let token = window.localStorage.getItem('access_token');
-    return this.httpService.post('inviteFriend', formData, token);
+  getAllNotificationsByCb(): Observable<any> {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.get('getAllNotificationsByCb', token)
   }
 
-  getSaving(idUser: any): Observable <any>{
-    let token = window.localStorage.getItem('access_token');
-    return this.httpService.post('getSaving', idUser, token);
+  getFriendsValidates(idUser: any): Observable<any> {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.post('getFriendsValidates', idUser, token)
   }
 
-  getSavingTotal(idUser: any): Observable <any>{
-    let token = window.localStorage.getItem('access_token');
-    return this.httpService.post('getSavingTotal', idUser, token);
+  inviteFriend(formData: any): Observable<any> {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.post('inviteFriend', formData, token)
   }
 
-  getPointsSave(idUser: any): Observable <any>{
-    let token = window.localStorage.getItem('access_token');
-    return this.httpService.post('getPointsSave', idUser, token);
+  getSaving(idUser: any): Observable<any> {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.post('getSaving', idUser, token)
+  }
+
+  getSavingTotal(idUser: any): Observable<any> {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.post('getSavingTotal', idUser, token)
+  }
+
+  getPointsSave(idUser: any): Observable<any> {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.post('getPointsSave', idUser, token)
   }
 
   updatePicProfile(formData: any) {
-    let token = window.localStorage.getItem('access_token');
-    return this.httpService.post('updatePicProfile', formData, token);
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.post('updatePicProfile', formData, token)
   }
 
-  changeLocationCb(formData: any){
-    let token = window.localStorage.getItem('access_token');
-    return this.httpService.post('changeLocationCostaBlanca', formData, token);
+  changeLocationCb(formData: any) {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.post('changeLocationCostaBlanca', formData, token)
   }
 
-  changeLocationCs(formData: any){
-    let token = window.localStorage.getItem('access_token');
-    return this.httpService.post('changeLocationCostaDelSol', formData, token);
+  changeLocationCs(formData: any) {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.post('changeLocationCostaDelSol', formData, token)
   }
 
   logout() {
-    this.storageService.removeStorageItem("access_token").then(res => {
-      this.userData$.next('');
+    this.storageService.removeStorageItem('access_token').then((res) => {
+      this.userData$.next('')
 
-      localStorage.clear();
-      window.localStorage.clear();
-      window.localStorage.removeItem("access_token");
-      window.localStorage.removeItem("id_user");
-      window.localStorage.removeItem("login");
-      window.localStorage.removeItem("location");
+      localStorage.clear()
+      window.localStorage.clear()
+      window.localStorage.removeItem('access_token')
+      window.localStorage.removeItem('id_user')
+      window.localStorage.removeItem('login')
+      window.localStorage.removeItem('location')
 
-      this.navCtrl.navigateRoot('/login', { animated: true, animationDirection: 'forward' });
-    });
+      this.navCtrl.navigateRoot('/login', {
+        animated: true,
+        animationDirection: 'forward',
+      })
+    })
   }
-
 
   /****************** CALLS OVERVIEW APP WITHOUT TOKENS *******************/
 
-
-  getOverViewAllCategories(lng: any): Observable<any>{
-    return this.httpService.postCallApiOverView('getCategoriesOverView', lng);
+  getOverViewAllCategories(lng: any): Observable<any> {
+    return this.httpService.postCallApiOverView('getCategoriesOverView', lng)
   }
 
-  getOverViewsDetailsPartnerCds(idPartner: any): Observable<any>{
-    return this.httpService.postCallApiOverView('getDetailsPartnerOverViewCds', idPartner);
+  getOverViewsDetailsPartnerCds(idPartner: any): Observable<any> {
+    return this.httpService.postCallApiOverView(
+      'getDetailsPartnerOverViewCds',
+      idPartner,
+    )
   }
 
-  getOverViewPartnerCds(idCategory: any): Observable<any>{
-    return this.httpService.postCallApiOverView('getPartnerOverViewCds', idCategory);
+  getOverViewPartnerCds(idCategory: any): Observable<any> {
+    return this.httpService.postCallApiOverView(
+      'getPartnerOverViewCds',
+      idCategory,
+    )
   }
 
   /******** *************/
-  getPartnerOverViewCb(idPartner: any): Observable<any>{
-    return this.httpService.postCallApiOverView('getPartnerOverViewCb', idPartner);
+  getPartnerOverViewCb(idPartner: any): Observable<any> {
+    return this.httpService.postCallApiOverView(
+      'getPartnerOverViewCb',
+      idPartner,
+    )
   }
 
-  getDetailsPartnerOverViewCb(idCategory: any): Observable<any>{
-    return this.httpService.postCallApiOverView('getDetailsPartnerOverViewCb', idCategory);
+  getDetailsPartnerOverViewCb(idCategory: any): Observable<any> {
+    return this.httpService.postCallApiOverView(
+      'getDetailsPartnerOverViewCb',
+      idCategory,
+    )
   }
-
 }

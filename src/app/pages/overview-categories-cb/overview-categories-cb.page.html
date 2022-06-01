@@ -3,7 +3,7 @@
     <ion-buttons class="back-button" slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <img src="assets/logo.svg" class="smallLogo"/>
+    <img src="assets/logo.svg" class="smallLogo" />
   </ion-toolbar>
 </ion-header>
 
@@ -11,14 +11,17 @@
   <ion-grid class="text-info">
     <ion-row class="ion-justify-content-center">
       <ion-col size="10" class="center-col">
-        <h4> {{ 'INFORMATION' | translate }} </h4>
-        <p> {{ 'INFO' | translate }}</p>
+        <h4>{{ 'INFORMATION' | translate }}</h4>
+        <p>{{ 'INFO' | translate }}</p>
       </ion-col>
     </ion-row>
   </ion-grid>
   <div class="content-category" *ngFor="let item of categories">
     <div (click)="clickCategory(item)">
-      <img class="img-category" src="https://desarrollo.crmhawkins.com/storage/{{item?.image}}"/>
+      <img
+        class="img-category"
+        src="https://desarrollo.crmhawkins.com/storage/{{item?.image}}"
+      />
       <div class="content-title">
         <h4>{{item?.name}}</h4>
       </div>

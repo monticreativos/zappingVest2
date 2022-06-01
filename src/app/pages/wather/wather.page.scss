@@ -1,0 +1,55 @@
+ion-toolbar {
+  text-align: center;
+  margin: 0 auto;
+  --background: #161e29;
+}
+
+ion-content {
+  --background: white;
+}
+
+.smallLogo {
+  width: 160px;
+  text-align: center;
+  margin: 10px;
+}
+
+ion-list.ios.list-ios.hydrated {
+  background: white;
+  color: black;
+}
+
+ion-list-header.ios.hydrated {
+  color: black;
+  padding-bottom: 1rem;
+}
+@media (prefers-color-scheme: dark) {
+  ion-item {
+    --background: lightgray !important;
+  }
+}
+
+ion-item {
+  --background: #f2f2f2 !important;
+}
+
+.red {
+  color: red;
+}
+.orange {
+  color: orange;
+}
+.green {
+  color: green;
+}
+ion-avatar {
+  width: 80px;
+  height: 80px;
+}
+h2 {
+  color: black;
+  font-weight: bold;
+}
+h3 {
+  color: black;
+}

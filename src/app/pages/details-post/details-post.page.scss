@@ -1,0 +1,43 @@
+ion-toolbar {
+  text-align: center;
+  margin: 0 auto;
+  --background: #161e29;
+}
+
+ion-content {
+  --background: white;
+}
+
+ion-back-button {
+  color: white;
+}
+
+.smallLogo {
+  width: 160px;
+  text-align: center;
+  margin: 10px;
+}
+
+.back-button {
+  position: absolute;
+  color: #fff;
+}
+h1 {
+  color: black;
+}
+.card {
+  text-align: center;
+  padding: 1rem;
+}
+
+img.img-fluid {
+  width: 90%;
+}
+
+p {
+  color: black;
+}
+
+ion-button {
+  --background: #d3a768;
+}
