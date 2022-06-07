@@ -3,6 +3,7 @@ import { AuthService } from './../../services/auth.service'
 import { StorageService } from './../../services/storage.service'
 import { ToastService } from './../../services/toast.service'
 import { Router } from '@angular/router'
+import { VideoPlayer, VideoOptions } from '@ionic-native/video-player/ngx'
 import {
   ActionSheetController,
   Platform,
@@ -21,6 +22,7 @@ import {
   PushNotificationToken,
   PushNotificationActionPerformed,
 } from '@capacitor/core'
+import { DomSanitizer } from '@angular/platform-browser'
 
 import { FCM } from 'capacitor-fcm'
 
@@ -43,7 +45,7 @@ export class Tab1Page implements OnInit {
   postData = {
     id: '',
   }
-
+  videoOpts: VideoOptions
   postDataImage = {
     id_user: '',
     imgBase64: '',
@@ -60,6 +62,8 @@ export class Tab1Page implements OnInit {
     private loadingController: LoadingController,
     private navCtrl: NavController,
     private alertCtrl: AlertController,
+    private videoPlayer: VideoPlayer,
+    public sanitizer: DomSanitizer,
   ) {}
 
   ngOnInit() {}
@@ -230,5 +234,26 @@ export class Tab1Page implements OnInit {
         this.toastService.presentToast('Problema en la red.')
       },
     )
+  }
+
+  public playVideo() {
+    this.videoPlayer
+      .play('https://desarrollo.crmhawkins.com/storage/videos/intro.mp4')
+      .then(() => {
+        console.log('video completed')
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+  public playVideoHosted() {
+    this.videoPlayer
+      .play('https://desarrollo.crmhawkins.com/storage/videos/intro.mp4')
+      .then(() => {
+        console.log('video completed')
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 }
