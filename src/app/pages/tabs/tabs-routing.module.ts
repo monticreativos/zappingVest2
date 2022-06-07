@@ -23,6 +23,13 @@ const routes: Routes = [
           import('../tab2/tab2.module').then((m) => m.Tab2PageModule),
       },
       {
+        path: 'tabs2/listSubCategory',
+        loadChildren: () =>
+          import('../list-subcategorias/listsubcategorias.module').then(
+            (m) => m.ListSubCategoriasPageModule,
+          ),
+      },
+      {
         path: 'tabs2/listCategory',
         loadChildren: () =>
           import('../partner/partner.module').then((m) => m.PartnerPageModule),

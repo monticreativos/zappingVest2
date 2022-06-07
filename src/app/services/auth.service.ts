@@ -41,6 +41,11 @@ export class AuthService {
     return this.httpService.get('getAllCategories', token)
   }
 
+  getSubCategorias(): Observable<any> {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.get('getSubCategorias', token)
+  }
+
   /******/
 
   getPartner(data: any): Observable<any> {

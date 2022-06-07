@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core'
-import { AuthService } from './../../services/auth.service'
-import { StorageService } from './../../services/storage.service'
-import { ToastService } from './../../services/toast.service'
+import { AuthService } from '../../services/auth.service'
+import { StorageService } from '../../services/storage.service'
+import { ToastService } from '../../services/toast.service'
 import { Router, NavigationExtras } from '@angular/router'
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss'],
+  selector: 'app-list-subcategorias',
+  templateUrl: 'listsubcategorias.page.html',
+  styleUrls: ['listsubcategorias.page.scss'],
 })
-export class Tab2Page implements OnInit {
+export class ListSubCategoriasPage implements OnInit {
   slideOpts = {
     initialSlide: 1,
     speed: 400,
@@ -23,7 +23,7 @@ export class Tab2Page implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.authService.getAllCategories().subscribe(
+    this.authService.getSubCategorias().subscribe(
       (res: any) => {
         this.categories = res
         console.log(res)
@@ -35,13 +35,7 @@ export class Tab2Page implements OnInit {
   }
 
   public clickCategory(item): void {
-    console.log(item.id)
-    if (item.id == 1) {
-      console.log('entro')
-      this.openSubcategorias(item)
-    } else {
-      this.openPartner(item)
-    }
+    this.openPartner(item)
   }
 
   openPartner(item) {
@@ -50,16 +44,6 @@ export class Tab2Page implements OnInit {
         item: item,
       },
     }
-
     this.router.navigate(['home/tabs/tabs2/listCategory'], navigationExtras)
-  }
-
-  openSubcategorias(item) {
-    let navigationExtras: NavigationExtras = {
-      state: {
-        item: item,
-      },
-    }
-    this.router.navigate(['home/tabs/tabs2/listSubCategory'], navigationExtras)
   }
 }
