@@ -49,7 +49,29 @@ ion-avatar {
 h2 {
   color: black;
   font-weight: bold;
+  margin: 0;
 }
 h3 {
   color: black;
+  margin: 0;
+}
+
+h4 {
+  color: black;
+  margin: 0;
+}
+h1 {
+  color: black;
+  font-weight: bold;
+}
+
+ion-card {
+  --background: #f2f2f2 !important;
+}
+ion-card-header {
+  padding: 0;
+}
+.img-tiempo {
+  width: 600px;
+  height: auto;
 }
