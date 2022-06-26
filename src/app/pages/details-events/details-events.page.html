@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons class="back-button" slot="start">
+      <ion-back-button
+        defaultHref="/home/tabs/tab8"
+        (click)="back()"
+      ></ion-back-button>
+    </ion-buttons>
+    <img src="assets/logo.svg" class="smallLogo" />
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid *ngIf="post">
+    <div class="card">
+      <img
+        class="img-fluid"
+        src="https://desarrollo.crmhawkins.com/storage/{{ post.image }}"
+      />
+      <h1>{{post?.titulo}}</h1>
+      <h3>
+        {{post?.lugar}} / {{post?.localidad}} / {{post?.provincia}}
+      </h3>
+      <h3>
+        {{post?.hora}} -> {{post?.fecha_evento | date: 'shortDate'}}
+      </h3>
+    </div>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="10" class="center-col details-partner">
+        <div class="details-description">
+          <p [innerHTML]="post?.descripcion">{{post?.descripcion}}</p>
+          <hr />
+          <agm-map
+        [style.height.px]="height"
+        [latitude]="lat"
+        [longitude]="lng"
+        [zoom]="13">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+       </agm-map>
+          <ion-button target="_blank" [href]="post.link" class="btn-booking" expand="block" >
+            + INFO
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

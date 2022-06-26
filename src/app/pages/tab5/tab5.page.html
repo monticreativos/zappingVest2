@@ -9,12 +9,12 @@
     <ion-list-header>Agenda</ion-list-header>
     <div *ngFor="let event of events">
       <ion-item>
-        <ion-avatar slot="start">
+        <ion-avatar slot="start" (click)="clickCategory(event)">
           <img
             src="https://desarrollo.crmhawkins.com/storage/{{event?.image}}"
           />
         </ion-avatar>
-        <ion-label>
+        <ion-label (click)="clickCategory(event)">
           <h2>{{event?.titulo}}</h2>
           <h3>
             {{event?.lugar}} / {{event?.localidad}} / {{event?.provincia}}

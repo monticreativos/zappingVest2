@@ -39,6 +39,6 @@ export class Tab5Page {
         item: item,
       },
     }
-    this.router.navigate(['home/tabs/tab6/detailsPost'], navigationExtras)
+    this.router.navigate(['home/tabs/tab9/detailsEvent'], navigationExtras)
   }
 }

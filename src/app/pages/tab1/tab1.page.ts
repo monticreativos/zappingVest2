@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, } from '@angular/core'
 import { AuthService } from './../../services/auth.service'
 import { StorageService } from './../../services/storage.service'
 import { ToastService } from './../../services/toast.service'
@@ -22,6 +22,7 @@ import {
   PushNotificationToken,
   PushNotificationActionPerformed,
 } from '@capacitor/core'
+
 import { DomSanitizer } from '@angular/platform-browser'
 
 import { FCM } from 'capacitor-fcm'
@@ -40,16 +41,20 @@ export class Tab1Page implements OnInit {
   public savings: any
   public savingsTotal: any
   public points: any
+
   segment: string
 
   postData = {
     id: '',
   }
+
   videoOpts: VideoOptions
+
   postDataImage = {
     id_user: '',
     imgBase64: '',
   }
+  
 
   constructor(
     private router: Router,
@@ -63,10 +68,13 @@ export class Tab1Page implements OnInit {
     private navCtrl: NavController,
     private alertCtrl: AlertController,
     private videoPlayer: VideoPlayer,
-    public sanitizer: DomSanitizer,
-  ) {}
+    private _sanitizer: DomSanitizer
+    ) {}
+    
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 
   onSubmit() {
     // <----
@@ -235,6 +243,19 @@ export class Tab1Page implements OnInit {
       },
     )
   }
+
+  getVideoIframe(url) {
+    var video, results;
+ 
+    if (url === null) {
+        return '';
+    }
+    results = url.match('[\\?&]v=([^&#]*)');
+    video   = (results === null) ? url : results[1];
+ 
+    return this._sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + video);   
+}
+
 
   public playVideo() {
     this.videoPlayer

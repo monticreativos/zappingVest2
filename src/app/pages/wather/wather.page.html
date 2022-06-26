@@ -52,26 +52,6 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card *ngFor="let item of resultados">
-    <ion-row>
-      <ion-col size="3">
-        <ion-item>
-          <ion-icon name="pin" slot="start">
-            <img
-              src="http://openweathermap.org/img/w/{{item.list[0].weather[0].icon}}.png"
-            />
-          </ion-icon>
-          <ion-label>{{item.city.name}}</ion-label>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-
-    <ion-card-content>
-      This is content, without any paragraph or header tags, within an
-      ion-card-content element.
-    </ion-card-content>
-  </ion-card>
-
   <!-- <ion-list>
     <ion-list-header></ion-list-header>
     <ion-item *ngFor="let item of resultados">

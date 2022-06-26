@@ -30,6 +30,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'tabs2/listSubCategory/details-partner',
+        loadChildren: () =>
+          import('../details-partner-info/details-partner-info.module').then(
+            (m) => m.DetailsPartnerInfoPageModule,
+          ),
+      },
+      {
         path: 'tabs2/listCategory',
         loadChildren: () =>
           import('../partner/partner.module').then((m) => m.PartnerPageModule),
@@ -80,6 +87,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'tab9/detailsEvent',
+        loadChildren: () =>
+          import('../details-events/details-events.module').then(
+            (m) => m.DetailsEventsPageModule,
+          ),
+      },
+      {
         path: 'forecast',
         loadChildren: () =>
           import('../wather/wather.module').then((m) => m.WatherPageModule),
@@ -94,6 +108,12 @@ const routes: Routes = [
         loadChildren: () =>
           import('../tab5/tab5.module').then((m) => m.Tab5PageModule),
       },
+      {
+        path: 'video',
+        loadChildren: () => 
+        import('../video/video.module').then( m => m.VideoPageModule)
+      },
+    
     ],
   },
   {
