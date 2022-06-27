@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons class="back-button" slot="start">
+      <ion-back-button
+        defaultHref="/home/tabs/tab2"
+        (click)="back()"
+      ></ion-back-button>
+    </ion-buttons>
+    <img src="assets/logo.svg" class="smallLogo" />
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid *ngIf="listParnet">
+    <ion-row>
+      <ion-col size="6" class="col-partner" *ngFor="let item of listParnet">
+        <img
+          class="img-category"
+          src="https://desarrollo.crmhawkins.com/storage/{{ item?.images[0] }}"
+          (click)="viewPartner(item)"
+        />
+        <h5>{{item?.name}}</h5>
+        <ion-button
+          class="btn-discount"
+          expand="block"
+          (click)="infoDiscount(item)"
+        >
+          {{item?.discount}}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

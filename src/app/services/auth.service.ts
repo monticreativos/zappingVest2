@@ -52,7 +52,10 @@ export class AuthService {
     let token = window.localStorage.getItem('access_token')
     return this.httpService.post('getPartner', data, token)
   }
-
+  getSubPartner(data: any): Observable<any> {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.post('getSubPartner', data, token)
+  }
   /******/
 
   getDetailsPartner(idPartner: any): Observable<any> {
@@ -63,6 +66,11 @@ export class AuthService {
   getPostById(idPartner: any): Observable<any> {
     let token = window.localStorage.getItem('access_token')
     return this.httpService.post('getPostById', idPartner, token)
+  }
+
+  getEventoById(idPartner: any): Observable<any> {
+    let token = window.localStorage.getItem('access_token')
+    return this.httpService.post('getEventoById', idPartner, token)
   }
 
   saveTicket(formData: any) {
@@ -164,6 +172,10 @@ export class AuthService {
 
   getOverViewAllCategories(lng: any): Observable<any> {
     return this.httpService.postCallApiOverView('getCategoriesOverView', lng)
+  }
+
+  getSubCategories(lng: any): Observable<any> {
+    return this.httpService.postCallApiOverView('getSubCategories', lng)
   }
 
   getOverViewsDetailsPartnerCds(idPartner: any): Observable<any> {

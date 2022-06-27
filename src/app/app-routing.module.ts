@@ -97,6 +97,20 @@ const routes: Routes = [
         './pages/overview-details-partners-cb/overview-details-partners-cb.module'
       ).then((m) => m.OverviewDetailsPartnersCbPageModule),
   },
+  {
+    path: 'details-partner-info',
+    loadChildren: () => import('./pages/details-partner-info/details-partner-info.module').then( m => m.DetailsPartnerInfoPageModule)
+  },
+  {
+    path: 'details-events',
+    loadChildren: () => import('./pages/details-events/details-events.module').then( m => m.DetailsEventsPageModule)
+  },
+  {
+    path: 'video',
+    loadChildren: () => 
+    import('./pages/video/video.module').then( m => m.VideoPageModule)
+  },
+
 ]
 @NgModule({
   imports: [
